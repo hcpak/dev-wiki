@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="320" viewBox="0 0 820 320" font-family="Apple SD Gothic Neo, Pretendard, -apple-system, sans-serif">
+  <rect width="820" height="320" rx="10" fill="#f6f7f9"/>
+
+  <!-- 축 -->
+  <line x1="90" y1="236" x2="760" y2="236" stroke="#9ca3af" stroke-width="1.5"/>
+  <line x1="90" y1="60" x2="90" y2="236" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="700" y="262" font-size="13" fill="#6b7280">시간 →</text>
+  <text x="42" y="66" font-size="13" fill="#6b7280">분량</text>
+
+  <!-- 절차: 처음 적고 거의 안 변함 -->
+  <path d="M120 196 H740" fill="none" stroke="#9ca3af" stroke-width="2.5"/>
+  <text x="600" y="186" font-size="14" fill="#6b7280">절차 — 거의 안 바뀜</text>
+
+  <!-- 금지 규칙: 사고마다 계단식 증가 -->
+  <path d="M120 226 H210 V206 H300 V182 H390 V152 H480 V126 H570 V102 H660 V78 H740"
+        fill="none" stroke="#ef4444" stroke-width="2.5"/>
+  <text x="470" y="66" font-size="14" fill="#ef4444" font-weight="600">금지 규칙 — 사고마다 한 줄씩</text>
+
+  <!-- 사고 지점 -->
+  <circle cx="210" cy="206" r="4" fill="#ef4444"/>
+  <circle cx="300" cy="182" r="4" fill="#ef4444"/>
+  <circle cx="390" cy="152" r="4" fill="#ef4444"/>
+  <circle cx="480" cy="126" r="4" fill="#ef4444"/>
+  <circle cx="570" cy="102" r="4" fill="#ef4444"/>
+  <circle cx="660" cy="78" r="4" fill="#ef4444"/>
+
+  <!-- 범례: 점이 무엇인지 축 밖에서 설명 (선과 겹치지 않게) -->
+  <circle cx="98" cy="262" r="4" fill="#ef4444"/>
+  <text x="112" y="267" font-size="13" fill="#9ca3af">사고가 난 시점</text>
+
+  <line x1="40" y1="284" x2="780" y2="284" stroke="#e5e7eb"/>
+  <text x="40" y="308" font-size="14" fill="#6b7280">그래서 이 문서는 절차서가 아니라 <tspan fill="#1f2937" font-weight="600">실패 기록부</tspan>에 가깝다</text>
+</svg>

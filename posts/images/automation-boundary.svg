@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="300" viewBox="0 0 820 300" font-family="Apple SD Gothic Neo, Pretendard, -apple-system, sans-serif">
+  <rect width="820" height="300" rx="10" fill="#f6f7f9"/>
+
+  <!-- 경계선 -->
+  <line x1="410" y1="44" x2="410" y2="216" stroke="#ef4444" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="410" y="34" font-size="13" fill="#ef4444" text-anchor="middle">남에게 보이는 선</text>
+
+  <!-- 왼쪽: 자동 -->
+  <text x="60" y="74" font-size="15" fill="#16a34a" font-weight="600">자동으로 맡긴다</text>
+  <rect x="60" y="92" width="150" height="42" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="98" y="119" font-size="14" fill="#1f2937">조회 · 수집</text>
+  <rect x="60" y="146" width="150" height="42" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="98" y="173" font-size="14" fill="#1f2937">분석 · 초안</text>
+
+  <!-- 화살표 -->
+  <path d="M228 134 H392" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+  <path d="M386 128 l8 6 -8 6 z" fill="#9ca3af"/>
+
+  <!-- 오른쪽: 승인 -->
+  <text x="452" y="74" font-size="15" fill="#ef4444" font-weight="600">내가 보고 승인한다</text>
+  <rect x="452" y="92" width="150" height="42" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="500" y="119" font-size="14" fill="#1f2937">댓글 등록</text>
+  <rect x="452" y="146" width="150" height="42" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="490" y="173" font-size="14" fill="#1f2937">본문 수정</text>
+  <rect x="620" y="92" width="150" height="42" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="668" y="119" font-size="14" fill="#1f2937">채널 공지</text>
+  <text x="620" y="158" font-size="13" fill="#9ca3af">↑ 이건 아예 안 맡김</text>
+
+  <line x1="40" y1="248" x2="780" y2="248" stroke="#e5e7eb"/>
+  <text x="40" y="274" font-size="14" fill="#6b7280">AI 는 글의 내용은 읽지만 <tspan fill="#1f2937" font-weight="600">그 자리의 성격</tspan>은 못 읽는다</text>
+</svg>

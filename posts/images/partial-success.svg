@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="300" viewBox="0 0 820 300" font-family="Apple SD Gothic Neo, Pretendard, -apple-system, sans-serif">
+  <rect width="820" height="300" rx="10" fill="#f6f7f9"/>
+
+  <text x="40" y="48" font-size="15" fill="#6b7280">자료 수집</text>
+
+  <!-- 갈래 A -->
+  <rect x="40" y="66" width="180" height="46" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="62" y="95" font-size="15" fill="#1f2937">갈래 A</text>
+  <text x="186" y="95" font-size="15" fill="#16a34a">✓</text>
+
+  <!-- 갈래 B -->
+  <rect x="40" y="124" width="180" height="46" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="62" y="153" font-size="15" fill="#1f2937">갈래 B</text>
+  <text x="186" y="153" font-size="15" fill="#16a34a">✓</text>
+
+  <!-- 갈래 C (실패) -->
+  <rect x="40" y="182" width="180" height="46" rx="8" fill="#ffffff" stroke="#ef4444" stroke-dasharray="5 4"/>
+  <text x="62" y="211" font-size="15" fill="#9ca3af">갈래 C</text>
+  <text x="186" y="211" font-size="15" fill="#ef4444">✗</text>
+
+  <!-- 연결선 -->
+  <path d="M220 89 H300 V147 H360" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+  <path d="M220 147 H360" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+  <path d="M220 205 H300 V147" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.55"/>
+  <path d="M354 141 l8 6 -8 6 z" fill="#9ca3af"/>
+
+  <!-- 결과물 -->
+  <rect x="380" y="106" width="170" height="82" rx="8" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="404" y="141" font-size="15" fill="#1f2937">보고서</text>
+  <text x="404" y="166" font-size="13" fill="#6b7280">에러 없음</text>
+
+  <!-- 판정 -->
+  <text x="590" y="132" font-size="16" fill="#1f2937" font-weight="600">멀쩡해 보인다</text>
+  <text x="590" y="162" font-size="14" fill="#ef4444">실제로는 6건 누락</text>
+
+  <line x1="40" y1="256" x2="780" y2="256" stroke="#e5e7eb"/>
+  <text x="40" y="282" font-size="14" fill="#6b7280">실패한 게 아니라 <tspan fill="#1f2937" font-weight="600">부분적으로 성공</tspan>했다 — 완전히 죽었다면 바로 알았을 것이다</text>
+</svg>
