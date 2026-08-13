@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="360" viewBox="0 0 820 360" font-family="Apple SD Gothic Neo, Pretendard, -apple-system, sans-serif">
+  <rect width="820" height="360" rx="10" fill="#f6f7f9"/>
+
+  <!-- 증상 -->
+  <rect x="300" y="34" width="220" height="48" rx="8" fill="#ffffff" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="410" y="64" font-size="16" fill="#1f2937" text-anchor="middle" font-weight="600">화면에 항목이 없다</text>
+
+  <!-- 분기선 -->
+  <path d="M410 82 V106" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+  <path d="M150 106 H670" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+  <path d="M150 106 V132 M410 106 V132 M670 106 V132" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+
+  <!-- 원인 1 -->
+  <rect x="45" y="132" width="210" height="62" rx="8" fill="#ffffff" stroke="#ef4444"/>
+  <text x="150" y="158" font-size="15" fill="#1f2937" text-anchor="middle">세션 식별자가</text>
+  <text x="150" y="180" font-size="15" fill="#1f2937" text-anchor="middle">어긋났다</text>
+
+  <!-- 원인 2 -->
+  <rect x="305" y="132" width="210" height="62" rx="8" fill="#ffffff" stroke="#16a34a"/>
+  <text x="410" y="158" font-size="15" fill="#1f2937" text-anchor="middle">할 일을 다 끝내서</text>
+  <text x="410" y="180" font-size="15" fill="#1f2937" text-anchor="middle">파일이 지워졌다</text>
+
+  <!-- 원인 3 -->
+  <rect x="565" y="132" width="210" height="62" rx="8" fill="#ffffff" stroke="#d97706"/>
+  <text x="670" y="158" font-size="15" fill="#1f2937" text-anchor="middle">링크가 잘려</text>
+  <text x="670" y="180" font-size="15" fill="#1f2937" text-anchor="middle">다른 곳으로 간다</text>
+
+  <path d="M150 194 V218 M410 194 V218 M670 194 V218" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+
+  <!-- 판정 -->
+  <text x="150" y="240" font-size="16" fill="#ef4444" text-anchor="middle" font-weight="600">진짜 고장</text>
+  <text x="150" y="264" font-size="13" fill="#6b7280" text-anchor="middle">항목은 살아 있는데</text>
+  <text x="150" y="283" font-size="13" fill="#6b7280" text-anchor="middle">패널만 못 찾는다</text>
+
+  <text x="410" y="240" font-size="16" fill="#16a34a" text-anchor="middle" font-weight="600">정상 동작</text>
+  <text x="410" y="264" font-size="13" fill="#6b7280" text-anchor="middle">고장이 아니라</text>
+  <text x="410" y="283" font-size="13" fill="#6b7280" text-anchor="middle">일을 다 한 것이다</text>
+
+  <text x="670" y="240" font-size="16" fill="#d97706" text-anchor="middle" font-weight="600">표시 문제</text>
+  <text x="670" y="264" font-size="13" fill="#6b7280" text-anchor="middle">클릭도 되고 에러도 없다</text>
+  <text x="670" y="283" font-size="13" fill="#6b7280" text-anchor="middle">다만 다른 페이지다</text>
+
+  <line x1="40" y1="312" x2="780" y2="312" stroke="#e5e7eb"/>
+  <text x="40" y="338" font-size="14" fill="#6b7280">증상이 같다고 원인이 같지 않다 — <tspan fill="#1f2937" font-weight="600">"안 보인다"에서 곧장 "없어졌다"로 가면 안 된다</tspan></text>
+</svg>
