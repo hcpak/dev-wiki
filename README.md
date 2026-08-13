@@ -60,6 +60,10 @@
 | --- | --- |
 | [neutron `utils.execute()`의 인코딩 사고 경로](notes/openstack/neutron-utils-execute.md) | 명령 출력 bytes를 oslo_i18n 유니코드 템플릿에 `%`로 병합하는 지점이 터진다 |
 | [oslo.service 주기 루프는 콜백 예외에 죽는다](notes/openstack/oslo-loopingcall-dies-on-exception.md) | 예외 한 번에 그 항목의 루프만 조용히 멈추고, 재시작 전까지 안 살아난다 |
+| [소프트 삭제는 청소 명령을 따로 돌려야 사라진다](notes/openstack/soft-delete-needs-a-reaper.md) | `deleted=1` 로 표시만 될 뿐 행은 남는다. 유니크 제약도 계속 점유한다 |
+| [롤백 중 터진 2차 예외가 원인 예외를 덮어쓴다](notes/openstack/rollback-masks-original-exception.md) | `except: cleanup(); raise` 에서 `cleanup()` 이 던지면 `raise` 에 도달하지 못한다 |
+| [지연 실체화 — 조회 요청이 쓰기를 유발한다](notes/openstack/lazy-activation-on-read.md) | `GET` 하나가 리소스를 생성하고 실패 시 롤백까지 한다. "조회는 안전하다"가 깨진다 |
+| [공인 IP 하나로 소유자를 역추적하는 체인](notes/openstack/floatingip-to-owner-chain.md) | floating IP는 자기가 누구 것인지 모른다. `port_id` 만이 유일한 링크다 |
 
 ### haproxy
 
@@ -79,12 +83,50 @@
 | 문서 | 한 줄 |
 | --- | --- |
 | [이미지 패키지 핀과 버전 스큐](notes/packaging/version-skew-in-image-pins.md) | 호출측·구현측을 나눠 만들면 한쪽 핀만 올라가도 빌드는 통과하고 런타임에 `AttributeError`로 터진다 |
+| [constraints 핀은 원본 잠금과 함께 늙는다](notes/packaging/constraints-pin-outlives-its-lock.md) | 잠금을 안 읽는 런처에 넘긴 사본이 상류 상향과 모순되면, 재시작하는 쪽부터 기동 불가 |
 
 ### shell
 
 | 문서 | 한 줄 |
 | --- | --- |
 | [expect 스크립트가 느릴 때](notes/shell/expect-timeout-diagnosis.md) | 총 소요가 `set timeout` 값과 비슷하면, 패턴 안 맞은 `expect` 하나가 조용히 다 태우는 것이다 |
+| [OSC 8 — 보이는 글자와 링크 대상 분리하기](notes/shell/osc8-terminal-hyperlinks.md) | 이스케이프는 화면 폭을 안 먹는다. 미지원 터미널에서도 라벨만 남고 안 깨진다 |
+
+### networking
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [`100.64.0.0/10` — 공인도 사설도 아닌 제3의 대역](notes/networking/rfc6598-shared-address-space.md) | RFC 6598 공유 주소 공간. 고객 사설 대역과 겹치지 않는 사업자 내부 배관용 |
+
+### api
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [응답을 못 받은 것과 요청이 실패한 것은 다르다](notes/api/lost-response-is-not-a-failed-write.md) | 재시도 전에 상태를 조회한다. 멱등하지 않은 요청의 자동 재시도는 장애를 데이터 오염으로 바꾼다 |
+
+### filesystem
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [birthtime 은 "언제 만들어졌나" 를 알려주지 않는다](notes/filesystem/birthtime-is-not-creation-identity.md) | 원자적 교체가 새 inode 를 만들어, 내용만 고쳐도 생성 시각이 갱신된다 |
+
+### ops
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [워크로드가 이관된 호스트는 옛 버전을 진실처럼 말한다](notes/ops/migrated-workload-leaves-a-lying-host.md) | 조회가 실패하지 않고 **성공한다는 점**이 함정이다. 유닛이 도는지부터 본다 |
+
+### security
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [접두사 허용 규칙은 권한 경계가 아니다](notes/security/prefix-allowlist-is-not-a-capability-boundary.md) | 문자열 비교일 뿐 플래그를 해석하지 않는다. 읽기 전용인 줄 알았던 하위 명령이 쓰기까지 연다 |
+
+### knowledge
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [요약 인덱스는 원문과 조용히 어긋난다](notes/knowledge/summary-index-drift.md) | 요약이 훌륭할수록 원문을 안 열게 되어, 어긋났다는 사실 자체가 드러나지 않는다 |
 
 ## 작성 규칙
 
