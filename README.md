@@ -117,6 +117,12 @@
 | --- | --- |
 | [워크로드가 이관된 호스트는 옛 버전을 진실처럼 말한다](notes/ops/migrated-workload-leaves-a-lying-host.md) | 조회가 실패하지 않고 **성공한다는 점**이 함정이다. 유닛이 도는지부터 본다 |
 
+### search
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [리랭커는 정직하게 실패하지 않는다](notes/search/reranker-does-not-fail-honestly.md) | BM25 는 못 찾으면 "결과 없음", 리랭커는 오답에도 88%. 작은 코퍼스의 하이브리드 검색은 자신 있게 틀린다 |
+
 ### security
 
 | 문서 | 한 줄 |
