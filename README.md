@@ -47,6 +47,15 @@
 | [py2 유니코드 — Encode/Decode의 대칭](notes/python/py2-unicode-symmetry.md) | 템플릿이 bytes면 encode, unicode면 decode. 둘 다 ascii로 하기 때문에 터진다 |
 | [eventlet 그린스레드](notes/python/eventlet-greenthread.md) | 협력형 스케줄링이라 표준 블로킹 호출 하나가 서버 전체를 멈춘다 |
 | [pip `--upgrade` 는 의존성까지 건드린다](notes/python/pip-upgrade-dependency-resolution.md) | 설치는 성공했는데 임포트가 깨진다. 재시작 전에 임포트를 확인해야 한다 |
+| [venv 는 디렉터리를 옮기면 조용히 죽는다](notes/python/venv-breaks-when-repo-moves.md) | 셔뱅이 절대경로라 bad interpreter 로 전멸하는데, 에디터 lint 실종으로만 나타난다 |
+
+### git
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [worktree — 저장소 하나에 작업 디렉터리 N개](notes/git/worktree-one-repo-many-checkouts.md) | .git 은 공유, HEAD·index·작업 파일만 분리. stash 왕복과 .pyc 오염이 사라지고, ignored 파일 미상속이 도입 비용이다 |
+| [stash 는 커밋이다 — ref 를 붙이면 drop 후에도 복원된다](notes/git/stash-archive-with-protected-refs.md) | update-ref 아카이브는 gc 에 살아남고, 원시점 복원은 `^1`, 현재 브랜치 apply no-op 은 "이미 반영됨" 판별법이다 |
+| [squash merge 는 부모 하나짜리 일반 커밋을 만든다](notes/git/squash-merge-produces-a-single-parent-commit.md) | 브랜치를 써도 main 은 일직선. "갈래 보이는 히스토리" 요구는 squash-only 정책과 양립 불가 — 쟁점은 브랜치 운용이 아니라 머지 방식 설정이다 |
 
 ### prometheus
 
@@ -116,6 +125,13 @@
 | 문서 | 한 줄 |
 | --- | --- |
 | [워크로드가 이관된 호스트는 옛 버전을 진실처럼 말한다](notes/ops/migrated-workload-leaves-a-lying-host.md) | 조회가 실패하지 않고 **성공한다는 점**이 함정이다. 유닛이 도는지부터 본다 |
+| [오래 떠 있는 프로세스는 버려진 프로세스가 아니다](notes/ops/process-age-does-not-mean-abandoned.md) | 나이는 소유자를 말해주지 않는다. 고아의 신호는 경과 시간이 아니라 부모 부재이고, 삭제 전 참조는 커맨드라인으로 센다 |
+
+### whisper
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [Whisper 는 무음에서 "없음"을 출력하지 않는다](notes/whisper/whisper-invents-sentences-on-silence.md) | 무발화 녹음이 학습 잔재 문장으로 채워진다. 반복 검사로는 못 잡으니 volumedetect 의 mean/max 를 병행 — max 정상·mean 극저면 장비가 아니라 발화 부재다 |
 
 ### search
 
