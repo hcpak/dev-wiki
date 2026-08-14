@@ -64,6 +64,7 @@
 | [롤백 중 터진 2차 예외가 원인 예외를 덮어쓴다](notes/openstack/rollback-masks-original-exception.md) | `except: cleanup(); raise` 에서 `cleanup()` 이 던지면 `raise` 에 도달하지 못한다 |
 | [지연 실체화 — 조회 요청이 쓰기를 유발한다](notes/openstack/lazy-activation-on-read.md) | `GET` 하나가 리소스를 생성하고 실패 시 롤백까지 한다. "조회는 안전하다"가 깨진다 |
 | [공인 IP 하나로 소유자를 역추적하는 체인](notes/openstack/floatingip-to-owner-chain.md) | floating IP는 자기가 누구 것인지 모른다. `port_id` 만이 유일한 링크다 |
+| [커밋 이후 훅에서 실패하면 자식 레코드가 고아로 남는다](notes/openstack/after-commit-hook-failure-orphans-children.md) | `AFTER_*` 예외는 커밋된 삭제를 못 되돌린다. 그 뒤 삭제 API 가 영구 실패한다 |
 
 ### haproxy
 
