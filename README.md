@@ -90,12 +90,19 @@
 | --- | --- |
 | [state 와 pillar — 로직과 데이터의 분리](notes/salt/state-vs-pillar.md) | `file.managed` 파일의 정본은 저장소다. 노드에서 고치면 다음 적용 때 원복된다 |
 
+### observability
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [히스테리시스 — 복귀 문턱은 진입 문턱보다 높게](notes/observability/hysteresis-in-state-transitions.md) | 경계에서 흔들리는 지표에 대칭 문턱을 쓰면 발생↔복구 알림이 핑퐁한다. 발생은 빠르게, 복구는 오래 정상일 때만 |
+
 ### packaging
 
 | 문서 | 한 줄 |
 | --- | --- |
 | [이미지 패키지 핀과 버전 스큐](notes/packaging/version-skew-in-image-pins.md) | 호출측·구현측을 나눠 만들면 한쪽 핀만 올라가도 빌드는 통과하고 런타임에 `AttributeError`로 터진다 |
 | [constraints 핀은 원본 잠금과 함께 늙는다](notes/packaging/constraints-pin-outlives-its-lock.md) | 잠금을 안 읽는 런처에 넘긴 사본이 상류 상향과 모순되면, 재시작하는 쪽부터 기동 불가 |
+| [같은 소프트웨어, 다른 실행 유저](notes/packaging/same-software-different-runtime-user.md) | 배포판 deb 와 벤더 deb 는 유닛 `User=` 가 다를 수 있다 — 출처를 갈아타면 기존 파일 소유권 탓에 기동 실패, 양방향 모두 |
 
 ### shell
 
