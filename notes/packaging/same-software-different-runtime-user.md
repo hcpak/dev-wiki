@@ -75,3 +75,7 @@ E! [telegraf] Error running agent: connecting output outputs.file: context cance
 | 날짜 | 무엇을 했나 | 결과 |
 | --- | --- | --- |
 | 2026-08-20 | 최초 작성 — 배포판(1.21.4, `_telegraf`)→벤더(1.31.2, `telegraf`) 업그레이드에서 로그 파일 permission denied 기동 실패, chown 후 정상. 이어 다운그레이드에서 역방향 재발, 원래 유저로 chown 후 정상 — 양방향 실측 | `[실측]` 확립 |
+
+## 관련
+
+- [apt 는 의존성을 후보 버전으로만 자동 해석한다](apt-resolves-deps-at-candidate-only.md)
