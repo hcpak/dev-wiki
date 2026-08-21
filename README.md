@@ -58,6 +58,7 @@
 | [worktree — 저장소 하나에 작업 디렉터리 N개](notes/git/worktree-one-repo-many-checkouts.md) | .git 은 공유, HEAD·index·작업 파일만 분리. stash 왕복과 .pyc 오염이 사라지고, ignored 파일 미상속이 도입 비용이다 |
 | [stash 는 커밋이다 — ref 를 붙이면 drop 후에도 복원된다](notes/git/stash-archive-with-protected-refs.md) | update-ref 아카이브는 gc 에 살아남고, 원시점 복원은 `^1`, 현재 브랜치 apply no-op 은 "이미 반영됨" 판별법이다 |
 | [squash merge 는 부모 하나짜리 일반 커밋을 만든다](notes/git/squash-merge-produces-a-single-parent-commit.md) | 브랜치를 써도 main 은 일직선. "갈래 보이는 히스토리" 요구는 squash-only 정책과 양립 불가 — 쟁점은 브랜치 운용이 아니라 머지 방식 설정이다 |
+| [한 번의 git push 에서 refspec 들은 독립적으로 성공하고 실패한다](notes/git/push-refspecs-succeed-independently.md) | 브랜치가 거부돼도 함께 보낸 태그는 올라간다. exit code 는 "하나라도 실패" 만 알려주고, 태그 트리거 CI 는 이미 돌기 시작한다 |
 
 ### prometheus
 
@@ -102,6 +103,7 @@
 | --- | --- |
 | [이미지 패키지 핀과 버전 스큐](notes/packaging/version-skew-in-image-pins.md) | 호출측·구현측을 나눠 만들면 한쪽 핀만 올라가도 빌드는 통과하고 런타임에 `AttributeError`로 터진다 |
 | [constraints 핀은 원본 잠금과 함께 늙는다](notes/packaging/constraints-pin-outlives-its-lock.md) | 잠금을 안 읽는 런처에 넘긴 사본이 상류 상향과 모순되면, 재시작하는 쪽부터 기동 불가 |
+| [apt 는 의존성을 후보 버전으로만 자동 해석한다](notes/packaging/apt-resolves-deps-at-candidate-only.md) | 저장소에 신버전이 올라오는 순간 rc 핀 세트가 깨진다 — versioned Depends 는 해석 실패로, Recommends 는 에러 없이 조용히 탈락 |
 | [같은 소프트웨어, 다른 실행 유저](notes/packaging/same-software-different-runtime-user.md) | 배포판 deb 와 벤더 deb 는 유닛 `User=` 가 다를 수 있다 — 출처를 갈아타면 기존 파일 소유권 탓에 기동 실패, 양방향 모두 |
 
 ### shell
@@ -159,6 +161,12 @@
 | 문서 | 한 줄 |
 | --- | --- |
 | [요약 인덱스는 원문과 조용히 어긋난다](notes/knowledge/summary-index-drift.md) | 요약이 훌륭할수록 원문을 안 열게 되어, 어긋났다는 사실 자체가 드러나지 않는다 |
+
+### llm
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [에이전트 세션의 고정 오버헤드는 첫 질문 전에 이미 토큰을 쓴다](notes/llm/session-overhead-spends-tokens-before-work.md) | 매 세션 자동 주입물이 조용히 누적된다. %는 창 상대값이라 절대 토큰으로 비교하고, 지연 로드 도구는 비용 0에 가깝다 |
 
 ## 작성 규칙
 
