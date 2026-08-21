@@ -112,6 +112,8 @@
 | --- | --- |
 | [expect 스크립트가 느릴 때](notes/shell/expect-timeout-diagnosis.md) | 총 소요가 `set timeout` 값과 비슷하면, 패턴 안 맞은 `expect` 하나가 조용히 다 태우는 것이다 |
 | [OSC 8 — 보이는 글자와 링크 대상 분리하기](notes/shell/osc8-terminal-hyperlinks.md) | 이스케이프는 화면 폭을 안 먹는다. 미지원 터미널에서도 라벨만 남고 안 깨진다 |
+| [glob 은 문자열 매칭이 아니라 파일시스템 질의다](notes/shell/glob-queries-the-filesystem-not-a-string.md) | 디렉터리를 열거하며 `stat()` 하기 때문에 속성으로 거르는 퀄리파이어(`*(.m-1)`)가 가능하고, 0건이 빈 결과가 아니라 에러가 된다 |
+| [glob 과 regex 는 기호를 공유하지만 다른 언어다](notes/shell/glob-and-regex-are-different-languages.md) | glob `*`=regex `.*`, glob `.`은 특수문자가 아니다. 확장 주체도 셸 vs 프로그램이라, 따옴표를 빠뜨리면 패턴이 파일명으로 바뀌어 전달된다 |
 
 ### networking
 
