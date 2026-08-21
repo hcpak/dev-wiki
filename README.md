@@ -126,7 +126,7 @@
 
 | 문서 | 한 줄 |
 | --- | --- |
-| [워크로드가 이관된 호스트는 옛 버전을 진실처럼 말한다](notes/ops/migrated-workload-leaves-a-lying-host.md) | 조회가 실패하지 않고 **성공한다는 점**이 함정이다. 유닛이 도는지부터 본다 |
+| [워크로드가 이관된 호스트는 옛 버전을 진실처럼 말한다](notes/ops/migrated-workload-leaves-a-lying-host.md) | 조회가 실패하지 않고 **성공한다는 점**이 함정이다. 정지 누락 시 잔존 프로세스가 트래픽까지 오염시킨다. 유닛 상태부터 본다 |
 | [오래 떠 있는 프로세스는 버려진 프로세스가 아니다](notes/ops/process-age-does-not-mean-abandoned.md) | 나이는 소유자를 말해주지 않는다. 고아의 신호는 경과 시간이 아니라 부모 부재이고, 삭제 전 참조는 커맨드라인으로 센다 |
 
 ### whisper
