@@ -126,6 +126,7 @@
 | 문서 | 한 줄 |
 | --- | --- |
 | [응답을 못 받은 것과 요청이 실패한 것은 다르다](notes/api/lost-response-is-not-a-failed-write.md) | 재시도 전에 상태를 조회한다. 멱등하지 않은 요청의 자동 재시도는 장애를 데이터 오염으로 바꾼다 |
+| [잘못 배포된 자격증명이 유효하면 실패가 아니라 남의 데이터가 된다](notes/api/valid-credential-wrong-tenant-succeeds.md) | 멀티테넌트 push 게이트웨이는 자격증명으로 귀속을 정한다. 이웃 환경 값이 들어가면 2xx 무증상으로 데이터만 사라진다 |
 
 ### filesystem
 
@@ -139,6 +140,7 @@
 | --- | --- |
 | [워크로드가 이관된 호스트는 옛 버전을 진실처럼 말한다](notes/ops/migrated-workload-leaves-a-lying-host.md) | 조회가 실패하지 않고 **성공한다는 점**이 함정이다. 정지 누락 시 잔존 프로세스가 트래픽까지 오염시킨다. 유닛 상태부터 본다 |
 | [오래 떠 있는 프로세스는 버려진 프로세스가 아니다](notes/ops/process-age-does-not-mean-abandoned.md) | 나이는 소유자를 말해주지 않는다. 고아의 신호는 경과 시간이 아니라 부모 부재이고, 삭제 전 참조는 커맨드라인으로 센다 |
+| [정본에 반영 안 된 핫픽스는 다음 배포가 조용히 되돌린다](notes/ops/hotfix-outside-source-of-truth-gets-reverted.md) | 노드 수정은 드리프트로 취급돼 배포가 옛 값으로 원복한다. 배포 직후 회귀는 코드보다 conf mtime·정본 이력부터 대조 |
 
 ### whisper
 
