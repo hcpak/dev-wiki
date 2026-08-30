@@ -173,6 +173,7 @@
 | 문서 | 한 줄 |
 | --- | --- |
 | [에이전트 세션의 고정 오버헤드는 첫 질문 전에 이미 토큰을 쓴다](notes/llm/session-overhead-spends-tokens-before-work.md) | 매 세션 자동 주입물이 조용히 누적된다. %는 창 상대값이라 절대 토큰으로 비교하고, 지연 로드 도구는 비용 0에 가깝다 |
+| [한 세션은 모델을 하나만 갖는다 — 서브에이전트가 티어를 바꾸는 유일한 통로다](notes/llm/session-model-is-fixed-subagents-are-the-only-tier-lever.md) | effort 는 호출로 못 넘기고 에이전트 파일에만 박힌다. 속도의 주 레버는 모델 크기가 아니라 effort 이고, 도구 집약 작업은 약한 모델이 오히려 비싸다 |
 
 ## 작성 규칙
 
