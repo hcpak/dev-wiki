@@ -77,6 +77,8 @@
 | [지연 실체화 — 조회 요청이 쓰기를 유발한다](notes/openstack/lazy-activation-on-read.md) | `GET` 하나가 리소스를 생성하고 실패 시 롤백까지 한다. "조회는 안전하다"가 깨진다 |
 | [공인 IP 하나로 소유자를 역추적하는 체인](notes/openstack/floatingip-to-owner-chain.md) | floating IP는 자기가 누구 것인지 모른다. `port_id` 만이 유일한 링크다 |
 | [커밋 이후 훅에서 실패하면 자식 레코드가 고아로 남는다](notes/openstack/after-commit-hook-failure-orphans-children.md) | `AFTER_*` 예외는 커밋된 삭제를 못 되돌린다. 그 뒤 삭제 API 가 영구 실패한다 |
+| [비관리자 조회는 tenant_id 로 자동 필터되어, 행이 있어도 NotFound 가 된다](notes/openstack/tenant-scoped-query-hides-existing-rows.md) | 같은 코드가 admin 토큰이면 성공하고 프로젝트 토큰이면 실패한다. DB 에 행이 있는데 "없다"는 응답이 오면 권한 범위를 의심한다 |
+| [`AFTER_*` 콜백의 예외는 재전파되지 않고 남은 단계가 통째로 누락된다](notes/openstack/after-callback-exception-skips-the-rest.md) | API 는 200 으로 끝나고 예외 지점 뒤의 통지·정리만 조용히 빠진다. 유일한 흔적은 로그의 `Error during notification for` |
 
 ### haproxy
 
@@ -174,6 +176,12 @@
 | --- | --- |
 | [에이전트 세션의 고정 오버헤드는 첫 질문 전에 이미 토큰을 쓴다](notes/llm/session-overhead-spends-tokens-before-work.md) | 매 세션 자동 주입물이 조용히 누적된다. %는 창 상대값이라 절대 토큰으로 비교하고, 지연 로드 도구는 비용 0에 가깝다 |
 | [한 세션은 모델을 하나만 갖는다 — 서브에이전트가 티어를 바꾸는 유일한 통로다](notes/llm/session-model-is-fixed-subagents-are-the-only-tier-lever.md) | effort 는 호출로 못 넘기고 에이전트 파일에만 박힌다. 속도의 주 레버는 모델 크기가 아니라 effort 이고, 도구 집약 작업은 약한 모델이 오히려 비싸다 |
+
+### software-design
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [조회 API 의 "없음"이 None 인지 예외인지는 시그니처에 없다](notes/software-design/absence-contract-none-or-exception.md) | `is not None` 가드가 도달 불가 코드로 남는다. 정상 입력에서는 증상이 없어 리뷰·테스트를 통과한다 |
 
 ## 작성 규칙
 
