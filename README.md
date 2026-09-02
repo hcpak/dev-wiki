@@ -55,6 +55,7 @@
 
 | 문서 | 한 줄 |
 | --- | --- |
+| [pull --rebase 는 미푸시 로컬 커밋을 원격 위에 "재생성" 한다](notes/git/pull-rebase-replays-unpushed-commits.md) | 이동이 아니라 새 커밋 생성 — 해시가 바뀌고 reflog 에 원본이 남는다. 다시 쓰는 범위는 미푸시분뿐이라 다른 클론과 어긋나지 않고, 충돌은 커밋 단위로 난다 |
 | [worktree — 저장소 하나에 작업 디렉터리 N개](notes/git/worktree-one-repo-many-checkouts.md) | .git 은 공유, HEAD·index·작업 파일만 분리. stash 왕복과 .pyc 오염이 사라지고, ignored 파일 미상속이 도입 비용이다 |
 | [stash 는 커밋이다 — ref 를 붙이면 drop 후에도 복원된다](notes/git/stash-archive-with-protected-refs.md) | update-ref 아카이브는 gc 에 살아남고, 원시점 복원은 `^1`, 현재 브랜치 apply no-op 은 "이미 반영됨" 판별법이다 |
 | [squash merge 는 부모 하나짜리 일반 커밋을 만든다](notes/git/squash-merge-produces-a-single-parent-commit.md) | 브랜치를 써도 main 은 일직선. "갈래 보이는 히스토리" 요구는 squash-only 정책과 양립 불가 — 쟁점은 브랜치 운용이 아니라 머지 방식 설정이다 |
