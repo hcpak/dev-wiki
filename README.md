@@ -184,6 +184,12 @@
 | --- | --- |
 | [조회 API 의 "없음"이 None 인지 예외인지는 시그니처에 없다](notes/software-design/absence-contract-none-or-exception.md) | `is not None` 가드가 도달 불가 코드로 남는다. 정상 입력에서는 증상이 없어 리뷰·테스트를 통과한다 |
 
+### testing
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [CPS 와 TPS 는 다른 사건을 센다 — 연결 재사용을 허용하면 CPS 는 측정 자체가 성립하지 않는다](notes/testing/cps-and-tps-count-different-events.md) | 연결 재사용을 끄지 않으면 CPS 측정이 관대해진다. 같은 런의 두 숫자에 서로의 이름을 붙이면 측정 조건을 잘못 말하는 것 |
+
 ## 작성 규칙
 
 **공통**
