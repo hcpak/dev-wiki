@@ -138,6 +138,7 @@
 | 문서 | 한 줄 |
 | --- | --- |
 | [birthtime 은 "언제 만들어졌나" 를 알려주지 않는다](notes/filesystem/birthtime-is-not-creation-identity.md) | 원자적 교체가 새 inode 를 만들어, 내용만 고쳐도 생성 시각이 갱신된다 |
+| [심볼릭 링크에 쓰면 원본이 바뀌고, 이름을 바꾸면 링크만 옮겨진다](notes/filesystem/writing-through-a-symlink-changes-the-target.md) | 경로를 열어 쓰는 동작(`>`·`cp`·writeFile)은 링크를 따라가 원본을 덮고, `mv`·`ln -sfn` 은 링크 엔트리만 다룬다. 설정 파일을 심볼릭으로 공유하면 그 파일을 다시 쓰는 도구가 정본을 덮어쓴다 |
 
 ### ops
 
