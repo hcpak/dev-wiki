@@ -60,6 +60,7 @@
 | [stash 는 커밋이다 — ref 를 붙이면 drop 후에도 복원된다](notes/git/stash-archive-with-protected-refs.md) | update-ref 아카이브는 gc 에 살아남고, 원시점 복원은 `^1`, 현재 브랜치 apply no-op 은 "이미 반영됨" 판별법이다 |
 | [squash merge 는 부모 하나짜리 일반 커밋을 만든다](notes/git/squash-merge-produces-a-single-parent-commit.md) | 브랜치를 써도 main 은 일직선. "갈래 보이는 히스토리" 요구는 squash-only 정책과 양립 불가 — 쟁점은 브랜치 운용이 아니라 머지 방식 설정이다 |
 | [한 번의 git push 에서 refspec 들은 독립적으로 성공하고 실패한다](notes/git/push-refspecs-succeed-independently.md) | 브랜치가 거부돼도 함께 보낸 태그는 올라간다. exit code 는 "하나라도 실패" 만 알려주고, 태그 트리거 CI 는 이미 돌기 시작한다 |
+| [`git describe` 는 annotated 태그만 본다 — 한 커밋에 lightweight 와 annotated 를 섞으면 도구마다 다른 태그를 읽는다](notes/git/describe-sees-only-annotated-tags.md) | `--tags` 없이는 annotated 만 후보이고 여러 개면 tagger date 최신이 이긴다. pbr 은 describe(target) 와 `log --decorate`(new) 를 섞어 써서 lightweight 릴리스 + annotated rc 조합에 ValueError 로 죽는다 — 한 커밋 위 태그 종류는 통일 |
 
 ### prometheus
 
