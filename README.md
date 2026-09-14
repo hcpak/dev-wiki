@@ -87,6 +87,7 @@
 | --- | --- |
 | [`http-check expect` — 헬스체크 합격 조건](notes/haproxy/http-check-expect.md) | `expect` 를 안 쓰면 2xx·3xx 전부 합격. 좁게 박아두면 백엔드가 정상 응답을 바꿨을 때 오히려 DOWN 된다 |
 | [쿠키 기반 세션 지속성](notes/haproxy/cookie-session-persistence.md) | 쿠키는 LB 가 발급한다. 매핑표가 설정 파일이라 상태가 없고, 그래서 Active/Standby 가 바뀌어도 유지된다 |
+| [stick-table 은 프로세스 메모리다 — 옛 프로세스를 죽여 얻는 것은 연속성이 아니라 일관성](notes/haproxy/stick-table-dies-with-the-process.md) | `-sf` 는 연결을 살리지만 테이블은 새 프로세스로 안 넘어간다(peers 없으면). 공존 구간에 같은 클라이언트가 두 멤버로 갈라지고, kill -9 는 그 갈라짐만 없앤다. 첫 요청은 알고리즘, 둘째부터 테이블 |
 
 ### salt
 
