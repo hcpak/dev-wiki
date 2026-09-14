@@ -1,3 +1,7 @@
+---
+status: 활성
+verified: 2026-09-14
+---
 # 쿠키 기반 세션 지속성 — 왜 LB 장비가 바뀌어도 유지되나
 
 > 쿠키는 클라이언트가 만드는 게 아니라 **서버(여기선 LB)가 발급**하고 브라우저는 되돌려줄 뿐이다.
@@ -31,6 +35,11 @@ backend <be>
 `server` 라인 뒤의 `cookie <값>` 이 **"이 쿠키값이면 이 서버"** 라는 대응이다.
 트래픽이 흐르며 런타임에 쌓는 테이블이 아니라 **디스크의 설정 파일에 정적으로 박힌 값**이다.
 이 한 줄이 이 문서 전체의 핵심이다.
+
+`[코드]` 2026-09-14 재확인: OpenStack 계열 LB 에이전트의 haproxy 템플릿이 HTTP_COOKIE 지속성에 정확히 이 형태
+(`cookie SRV insert indirect nocache` + `server … cookie <멤버 id>`)를 생성한다. 같은 이유로 그 구현은
+stick-table 을 쓰는 SOURCE_IP 에서만 리로드 시 옛 프로세스를 죽이고, 쿠키 방식에는 그 분기가 없다
+→ [[haproxy/stick-table-dies-with-the-process]].
 
 ### 요청 흐름
 
@@ -207,10 +216,24 @@ echo "show table <be>" | socat stdio /var/run/<sock>
 **⑤ 문법·경고 확인**: `haproxy -c -f <cfg>` → `Configuration file is valid`.
 아래 첫 번째 함정 때문에 **valid 가 곧 동작 보장은 아니다.** 반드시 ①과 함께 본다.
 
+## 이 노트가 틀렸다면
+
+- 쿠키를 가진 클라이언트가 장비 전환·리로드 뒤 다른 서버로 간다(그 서버 UP, `option redispatch` 미발동)
+  → "LB 쪽에 런타임 상태가 없어 유지된다" 가 틀렸다.
+- 쿠키 방식만 걸린 백엔드에 `show table <be>` 가 테이블을 돌려준다 → "테이블 자체가 없다" 가 틀렸다.
+- 설정 재생성 때 `server … cookie <값>` 이 멤버 식별자와 무관하게 매번 바뀐다 → 매핑표가 설정 파일이라는
+  주장은 유지되지만, 재생성마다 고착이 초기화되는 것이 정상 동작이 된다(적용 범위 축소).
+- `[추정]` `mode tcp` 백엔드에 `cookie` 를 넣었을 때 기동이 실패하거나 경고가 전혀 없다 → "조용히 무시" 함정 문장을 고친다.
+
+## 적용 범위
+
+- `mode http` 백엔드에서 `cookie <이름> insert|prefix` 를 쓰는 구성. `mode tcp` 는 해당 없음(함정 참고).
+- 설정 파일이 정본이고 재생성 시 `server` 라인의 cookie 값이 안정적인 식별자(멤버 id 등)인 환경.
+
 ## 함정
 
-- ⚠️ **`mode tcp` 백엔드에 `cookie` 를 적으면 조용히 무시된다.** 설정 오류로 죽지 않고
-  시작 시 경고만 남기고 넘어가는 것으로 알려져 있다(💡 로컬에서 미검증).
+- ⚠️ `[추정]` **`mode tcp` 백엔드에 `cookie` 를 적으면 조용히 무시된다.** 설정 오류로 죽지 않고
+  시작 시 경고만 남기고 넘어가는 것으로 알려져 있다(로컬에서 미검증 — 반증 조건 참고).
   "설정에 넣었으니 되겠지"가 가장 위험하다 — ①로 실제 `Set-Cookie` 를 확인할 것.
 - ⚠️ **지속성은 best-effort 다.** `option redispatch` 가 켜져 있으면 연결 실패 시 고착을 깨고
   다른 서버로 넘어간다. "쿠키를 넣었으니 절대 안 바뀐다"는 보장이 아니다
@@ -227,7 +250,16 @@ echo "show table <be>" | socat stdio /var/run/<sock>
 - 💡 서버 식별자가 바뀌는 변경(백엔드 교체·재생성)을 하면 클라이언트의 옛 쿠키는 매칭에 실패해 재분배된다.
   무중단으로 보이지만 그 순간 고착은 초기화된다.
 
+## 검증 이력
+
+| 날짜 | 무엇을 했나 | 결과 |
+| --- | --- | --- |
+| 2026-08-11 | 최초 작성 (구형식) | — |
+| 2026-08-25 | `status` 필드 추가 | — |
+| 2026-09-14 | 템플릿 형식 전환 — 반증 조건·적용 범위·이력 추가. LB 에이전트 템플릿에서 `cookie SRV insert indirect nocache` + `server … cookie <멤버 id>` 재확인, 쿠키 방식에는 kill 분기가 없음 확인 | 유지, 핵심 주장 `[코드]` |
+
 ## 관련
 
 - [`http-check expect` — 헬스체크 합격 조건](http-check-expect.md) — 쿠키가 가리키는 서버를 DOWN 으로 판정하면 지속성보다 그쪽이 우선한다
 - [state 와 pillar](../salt/state-vs-pillar.md) — 이 설정 파일의 정본이 어디인지
+- [[haproxy/stick-table-dies-with-the-process]] — 반대편(stick-table)이 리로드에서 어떻게 사라지는가
