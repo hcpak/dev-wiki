@@ -24,6 +24,7 @@
 | 1 | [자동화 문서를 계속 고치다 보니, 절차서가 아니라 사고 기록부가 되어 있었다](posts/01-2026-08-12-skills-as-failure-log.md) | AI에게 반복 업무를 맡기며 알게 된 것 — 문서의 가치는 절차가 아니라 금지 목록에 있었다 | [velog](https://velog.io/@hugh0703/skills-as-failure-log) |
 | 2 | [상태를 보여주는 패널을 만들었더니, 무엇을 안 보여줄지가 일이 됐다](posts/02-2026-08-13-what-not-to-show.md) | 몇 줄짜리 화면에서 시간을 쓴 곳은 전부 "무엇을 뺄까"였다 | [velog](https://velog.io/@hugh0703/what-not-to-show) |
 | 3 | [대신 일하라고 나눴다. 지금은 나를 반박하라고 보낸다](posts/03-2026-08-13-delegating-in-parallel.md) | 일을 나눠 맡기다가 내 판단의 빈틈을 찾게 된 이야기 | [velog](https://velog.io/@hugh0703/delegating-in-parallel) |
+| 4 | [AI에게 작업을 맡기려면, 완료의 기준부터 만들어야 했다](posts/04-2026-09-25-defining-done-before-delegating.md) | 직접 확인하던 판단을 반복 가능한 검사로 옮긴 부하 테스트 경험 | [velog](https://velog.io/@hugh0703/defining-done-before-delegating) |
 
 ## 노트
 
