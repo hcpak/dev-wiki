@@ -47,7 +47,7 @@
 | 문서 | 한 줄 |
 | --- | --- |
 | [py2 유니코드 — Encode/Decode의 대칭](notes/python/py2-unicode-symmetry.md) | 템플릿이 bytes면 encode, unicode면 decode. 둘 다 ascii로 하기 때문에 터진다 |
-| [eventlet 그린스레드](notes/python/eventlet-greenthread.md) | 협력형 스케줄링이라 표준 블로킹 호출 하나가 서버 전체를 멈춘다 |
+| [eventlet 그린스레드](notes/python/eventlet-greenthread.md) | 협력형 스케줄링이라 표준 블로킹 호출 하나가 서버 전체를 멈춘다. 워커는 단일 스레드라 노드 지표가 한가해도 멈추며, 흔적은 에러가 아니라 로그 공백이다 |
 | [pip `--upgrade` 는 의존성까지 건드린다](notes/python/pip-upgrade-dependency-resolution.md) | 설치는 성공했는데 임포트가 깨진다. 재시작 전에 임포트를 확인해야 한다 |
 | [venv 는 디렉터리를 옮기면 조용히 죽는다](notes/python/venv-breaks-when-repo-moves.md) | 셔뱅이 절대경로라 bad interpreter 로 전멸하는데, 에디터 lint 실종으로만 나타난다 |
 
