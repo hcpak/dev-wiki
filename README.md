@@ -150,6 +150,7 @@
 | [워크로드가 이관된 호스트는 옛 버전을 진실처럼 말한다](notes/ops/migrated-workload-leaves-a-lying-host.md) | 조회가 실패하지 않고 **성공한다는 점**이 함정이다. 정지 누락 시 잔존 프로세스가 트래픽까지 오염시킨다. 유닛 상태부터 본다 |
 | [오래 떠 있는 프로세스는 버려진 프로세스가 아니다](notes/ops/process-age-does-not-mean-abandoned.md) | 나이는 소유자를 말해주지 않는다. 고아의 신호는 경과 시간이 아니라 부모 부재이고, 삭제 전 참조는 커맨드라인으로 센다 |
 | [정본에 반영 안 된 핫픽스는 다음 배포가 조용히 되돌린다](notes/ops/hotfix-outside-source-of-truth-gets-reverted.md) | 노드 수정은 드리프트로 취급돼 배포가 옛 값으로 원복한다. 배포 직후 회귀는 코드보다 conf mtime·정본 이력부터 대조 |
+| [감시자의 재시작이 서비스 초기화보다 빠르면 그 서비스는 영원히 뜨지 못한다](notes/ops/restart-faster-than-startup-never-comes-up.md) | 접속 실패마다 백엔드를 내리고 올리는 클라이언트가 콜드 스타트 중인 백엔드를 매번 죽인다. 죽인 쪽은 launchd 의 `booting out … caller` 체인으로 특정하고, 감시자를 멈춘 채 단독 기동해 리스너부터 확인한다 |
 
 ### whisper
 
