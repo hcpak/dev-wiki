@@ -165,6 +165,13 @@
 | --- | --- |
 | [리랭커는 정직하게 실패하지 않는다](notes/search/reranker-does-not-fail-honestly.md) | BM25 는 못 찾으면 "결과 없음", 리랭커는 오답에도 88%. 작은 코퍼스의 하이브리드 검색은 자신 있게 틀린다 |
 
+### unix (시그널)
+
+| 문서 | 한 줄 |
+| --- | --- |
+| [SIGPIPE 를 무시한 프로그램은 파이프를 받는 쪽이 끝나도 멈추지 않는다](notes/unix/ignored-sigpipe-keeps-writer-running.md) | 기본 동작이면 즉시 죽어 정리를 건너뛰고, SIG_IGN 이면 write 만 EPIPE 로 실패해 루프가 계속 돈다. 핸들러로 받아야 정리와 종료를 둘 다 얻는다 |
+| [nohup 아래에서 띄운 프로세스는 SIGHUP 을 무시한 채 태어난다](notes/unix/nohup-children-start-with-sighup-ignored.md) | 무시 상태는 exec 와 fork 를 지나 자손에게 넘어간다. nohup 으로 떼어 돌린 SIGHUP 시험은 수정 전후가 똑같이 생존으로 나온다 |
+
 ### security
 
 | 문서 | 한 줄 |
