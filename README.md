@@ -177,6 +177,7 @@
 | 문서 | 한 줄 |
 | --- | --- |
 | [접두사 허용 규칙은 권한 경계가 아니다](notes/security/prefix-allowlist-is-not-a-capability-boundary.md) | 문자열 비교일 뿐 플래그를 해석하지 않는다. 읽기 전용인 줄 알았던 하위 명령이 쓰기까지 연다 |
+| [LLM 도구 호출은 모델이 아니라 클라이언트가 실행한다](notes/security/llm-tool-calls-execute-on-client-not-model.md) | 모델은 `tool_use` 를 돌려주고 멈출 뿐, 로컬 MCP 서버는 클라이언트의 자식 프로세스다. 확정적 차단은 클라이언트의 도구 이름 deny 와 훅, 모델 쪽 차단은 확률적 |
 
 ### knowledge
 
