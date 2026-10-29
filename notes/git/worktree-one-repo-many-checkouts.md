@@ -5,7 +5,7 @@
 > 오브젝트·refs 는 공유되고, HEAD·index·작업 파일만 디렉터리별로 분리된다.
 
 **상태**: 활성
-**마지막 검증**: 2026-08-14
+**마지막 검증**: 2026-10-29
 
 ## 왜 그렇게 동작하나
 
@@ -52,6 +52,7 @@ fatal: '<main-branch>' is already used by worktree at '<main>'
 | 날짜 | 무엇을 했나 | 결과 |
 | --- | --- | --- |
 | 2026-08-14 | 3중 동시 편집·오브젝트 공유·이중 체크아웃 차단·pyc 격리·미상속 5항목 실측 | 최초 작성, 전부 `[실측]` |
+| 2026-10-29 | 다른 worktree 가 `main` 을 연 상태에서, PR 브랜치 worktree 에서 `gh pr merge --delete-branch` 를 실행했다. 머지 뒤 로컬 정리 단계가 `main` 체크아웃을 시도했다 | 「'main' is already used by worktree」로 거부됐다. 이중 체크아웃 차단을 다시 확인했다. 유지 |
 
 ## 관련
 
