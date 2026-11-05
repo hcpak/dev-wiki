@@ -128,6 +128,8 @@
 | [`100.64.0.0/10` — 공인도 사설도 아닌 제3의 대역](notes/networking/rfc6598-shared-address-space.md) | RFC 6598 공유 주소 공간. 고객 사설 대역과 겹치지 않는 사업자 내부 배관용 |
 | [SNI 가 필요한 이유 — 인증서를 골라야 할 때 `Host:` 헤더는 아직 오지 않았다](notes/networking/sni-exists-because-tls-precedes-the-host-header.md) | TLS 협상이 HTTP 요청보다 먼저 끝나야 하는데 `Host:` 는 그 암호화 채널 안에 있다. SNI 는 도메인명을 ClientHello 에 평문으로 얹어 이 순환을 끊는다 |
 | [자물쇠가 정상인데 404 — TLS 판정과 L7 라우팅은 다른 계층이다](notes/networking/tls-handshake-success-is-not-routing-success.md) | TLS 는 SNI 로, 라우팅은 `Host:` 헤더로 따로 판정한다. 도메인 이전에서 인증서만 맞추고 규칙을 놓치면 이 증상이 나온다 |
+| [next-hop IP 는 패킷에 실리지 않는다 — ARP 로 바꾼 MAC 이 Ethernet 목적지에만 들어간다](notes/networking/next-hop-is-written-only-into-the-ethernet-destination.md) | IP 목적지는 끝까지 최종 목적지다. next-hop 이 값으로 실리는 것은 BGP UPDATE 의 NEXT_HOP 처럼 페이로드 데이터일 때다. `tcpdump -e` 와 `ping -t 1` 로 확인한다 |
+| [iBGP 는 AS_PATH 에 자기 AS 를 붙이지 않는다 — 그래서 iBGP 로 받은 경로를 다른 iBGP 상대에게 다시 광고하지 않는다](notes/networking/ibgp-does-not-prepend-its-own-as-so-it-does-not-readvertise-ibgp-routes.md) | AS_PATH 로 루프를 못 잡아 재광고를 금지한다. `export all` 이어도 한 상대에게 받은 best 경로가 다른 상대로 나가지 않는다. 푸는 수단은 route reflector 와 confederation |
 | [anycast 는 패킷을 복제하지 않는다 — 목적지를 라우터가 고를 뿐이다](notes/networking/anycast-selects-a-destination-it-does-not-replicate.md) | 같은 IP 를 여러 지점에서 BGP 로 광고하면 라우터가 가장 가까운 한 곳을 고른다. 복제되는 것은 broadcast·multicast 이고, "IP 그룹" 은 표준 용어가 아니라 세 가지 다른 것의 별칭이다 |
 
 ### api
